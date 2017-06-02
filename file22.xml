@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<car>
+    <tires id="10">
+        <size>10</size>
+    </tires>
+    <tires id="20">
+        <size>11</size>
+    </tires>
+</car>
