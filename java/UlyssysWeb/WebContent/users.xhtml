@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"> 
+
+<h:head></h:head> 
+<h:body> 
+	<h:form>
+		<div>
+			<h:outputLabel value="Name" />
+			<h:inputText value="#{userMB.name}" />		
+		</div>
+		<div>
+			<h:outputLabel value="Login" />
+			<h:inputText value="#{userMB.login}" />		
+		</div>
+		<div>
+			<h:outputLabel value="Type" />
+			<h:inputText value="#{userMB.type}" />		
+		</div>
+		<div>
+			<c:choose>
+				<c:when test="#{userMB.userId > 0}">
+					<h:inputHidden value="#{userMB.userId}" />
+					<h:inputHidden value="#{userMB.password}" />
+					<h:commandButton action="#{userMB.updateUser()}" value="Update" />
+				</c:when>
+				<c:otherwise>
+					<h:commandButton action="#{userMB.createUser()}" value="Create" />
+				</c:otherwise>
+			</c:choose>
+		</div>
+	</h:form>
+
+	<table border="solid" cellpadding="2" cellspacing="3">
+		<thead>
+			<tr>
+			<th>Name</th>
+			<th>Login</th>
+			<th>Type</th>
+			<th></th>
+			<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<ui:repeat var="usr" value="#{userMB.getAllUsers()}">
+				<tr>
+					<td>#{usr.name}</td>
+					<td>#{usr.login}</td>
+					<td>#{usr.type}</td>
+					<td>
+						<h:form>
+							<h:commandLink action="#{userMB.getUserById(usr.userId)}" value="Edit" />
+						</h:form>
+					</td>
+					<td>
+						<h:form>
+							<h:commandLink action="#{userMB.deleteUser(usr.userId)}" value="Delete" />
+						</h:form>					
+					</td>
+				</tr>
+			</ui:repeat>
+		</tbody>
+	</table>
+</h:body> 
+</html>
