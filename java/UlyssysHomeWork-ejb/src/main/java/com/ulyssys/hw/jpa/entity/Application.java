@@ -8,13 +8,25 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@NamedQuery(name = "Application.getAll", query = "SELECT a FROM Application a")
+@NamedQueries({
+	  @NamedQuery(name = "Application.getAll",
+			  	  query = "SELECT a FROM Application a"),
+	  @NamedQuery(name="Application.findByUser",
+      			  query="SELECT a FROM Application a WHERE a.userId = :id"),
+	  @NamedQuery(name="Application.findByUserModifiable",
+	              query="SELECT a FROM Application a WHERE a.userId = :id AND a.approved IS NULL")
+	})
 public class Application implements Serializable {
 
+	public static final String GET_ALL = "Application.getAll"; 
+	public static final String FIND_BY_USER = "Application.findByUser"; 
+	public static final String FIND_BY_USER_MODIFIABLE = "Application.findByUserModifiable"; 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@NotNull

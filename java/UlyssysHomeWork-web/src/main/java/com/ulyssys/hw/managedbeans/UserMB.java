@@ -42,8 +42,6 @@ public class UserMB {
 		user.setLogin(login);
 		user.setPassword(password);
 		user.setType(type);
-		System.out.println(type);
-
 		userFacade.update(user);
 	}
 

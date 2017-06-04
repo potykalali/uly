@@ -15,10 +15,6 @@ import com.ulyssys.hw.ejb.beans.interfaces.GenericDAO;
 @Stateless
 public abstract class GenericDAOImp<T> implements GenericDAO<T> {
 
-	//private final static String UNIT_NAME = "CrudPU";
-	
-	//@PersistenceContext(unitName = UNIT_NAME)
-	
 	@PersistenceContext()
 	private EntityManager em;
 	 
@@ -59,6 +55,26 @@ public abstract class GenericDAOImp<T> implements GenericDAO<T> {
 		return em.createQuery(cq).getResultList();
 	}
 	
+	@SuppressWarnings({ "unchecked" })
+	public List<T> findAllByParameter(String namedQuery, Map<String, Object> parameters) {
+		List<T> result = null;
+		
+		try {
+			Query query = em.createNamedQuery(namedQuery);
+			// Method that will populate parameters if they are passed not null and empty
+			if (parameters != null && !parameters.isEmpty()) {
+				populateQueryParameters(query, parameters);
+			}
+
+			result = (List<T>) query.getResultList();
+
+		} catch (Exception e) {
+			 System.out.println("Error while running query: " + e.getMessage());
+			 e.printStackTrace();
+		 }
+		return result;
+	}
+	
 	// Using the unchecked because JPA does not have a
 	// ery.getSingleResult()<T> method
 	@SuppressWarnings("unchecked")
@@ -72,23 +88,18 @@ public abstract class GenericDAOImp<T> implements GenericDAO<T> {
 			if (parameters != null && !parameters.isEmpty()) {
 				populateQueryParameters(query, parameters);
 			}
-	
 			result = (T) query.getSingleResult();
-	
 		 } catch (Exception e) {
 			 System.out.println("Error while running query: " + e.getMessage());
 			 e.printStackTrace();
 		 }
-		 
 		 return result;
 	 }
 	 
 	 private void populateQueryParameters(Query query, Map<String, Object> parameters) {
-	 
 		 for (Entry<String, Object> entry : parameters.entrySet()) {
 			 query.setParameter(entry.getKey(), entry.getValue());
 		 }
-		 
 	 }
 
 }
