@@ -6,7 +6,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-import com.ulyssys.hw.ejb.beans.interfaces.UserDAOLocal;
+import com.ulyssys.hw.facades.interfaces.UserFacade;
 import com.ulyssys.hw.jpa.entity.User;
 
 @ViewScoped
@@ -14,7 +14,7 @@ import com.ulyssys.hw.jpa.entity.User;
 public class UserMB {
 
 	@EJB
-	private UserDAOLocal userDAOLocal;
+	private UserFacade userFacade;
 
 	private int userId;
 	private String name;
@@ -32,7 +32,7 @@ public class UserMB {
 		user.setName(name);
 		user.setPassword(login);
 		user.setType(type);
-		userDAOLocal.create(user);
+		userFacade.create(user);
 	}
 	
 	public void updateUser() {
@@ -44,11 +44,11 @@ public class UserMB {
 		user.setType(type);
 		System.out.println(type);
 
-		userDAOLocal.update(user);
+		userFacade.update(user);
 	}
 
 	public void getUserById(int userId) {
-		User user = userDAOLocal.getUserById(userId); 
+		User user = userFacade.findUserById(userId); 
 		this.userId = user.getUserId();
 		this.name = user.getName();
 		this.login = user.getLogin();
@@ -56,11 +56,11 @@ public class UserMB {
 	}
 	
 	public void deleteUser(int userId) {
-		userDAOLocal.remove(userId);
+		userFacade.remove(userId);
 	}
 	
 	public List<User> getAllUsers() {
-		return userDAOLocal.getAllUsers();
+		return userFacade.findAll();
 	}
 	
 	public int getUserId() {

@@ -73,14 +73,16 @@
 								<td>#{usr.type}</td>
 								<td>
 									<h:form>
-										<h:commandLink action="#{userMB.getUserById(usr.userId)}" />
+										<h:commandLink action="#{userMB.getUserById(usr.userId)}">
 										<i class="glyphicon glyphicon-edit"></i>
+										</h:commandLink>
 									</h:form>
 								</td>
 								<td>
 									<h:form>
-										<h:commandLink action="#{userMB.deleteUser(usr.userId)}" />
+										<h:commandLink action="#{userMB.deleteUser(usr.userId)}" >
 										<i class="glyphicon glyphicon-trash"></i>
+										</h:commandLink>
 									</h:form>					
 								</td>
 							</tr>
