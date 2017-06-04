@@ -9,6 +9,7 @@ import javax.faces.bean.ViewScoped;
 
 import com.ulyssys.hw.ejb.beans.dto.EventDTO;
 import com.ulyssys.hw.facades.interfaces.EventFacade;
+import com.ulyssys.hw.facades.interfaces.UserFacade;
 import com.ulyssys.hw.jpa.entity.Event;
 
 @ViewScoped
@@ -18,6 +19,9 @@ public class EventsMB {
 	@EJB
 	private EventFacade eventFacade;
 	
+	@EJB
+	private UserFacade userFacade;
+
 	private int eventId;
 	private String description;
 	private String successful;
@@ -34,6 +38,14 @@ public class EventsMB {
 	
 	public List<Event> getAllEventsDraft() {
 		return eventFacade.findAll();
+	}
+	
+	public String getLogin(int userId) {
+		try {
+			return userFacade.findUserById(userId).getLogin();
+		} catch (Exception e) {
+			return "[" + String.valueOf(userId) + "]";
+		}
 	}
 
 	public int getEventId() {

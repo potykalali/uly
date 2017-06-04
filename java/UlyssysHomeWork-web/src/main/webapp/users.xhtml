@@ -1,97 +1,87 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="templates/common-template.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:c="http://java.sun.com/jsp/jstl/core"> 
 
-<h:head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1"/>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	<h:outputStylesheet library="css" name="bootstrap.min1.css"></h:outputStylesheet>>
-</h:head> 
-<h:body> 
-	<div class="container">
-		<div class="navbar navbar-inverse">
-			<div class="navbar-brand">
-				Ulyssys Homework			
-			</div>
-		</div>
-		<div class="row">
-			<div class="col-xs-12">
-				<h:form styleClass="form-horizontal">
-					<div class="form-group">
-						<h:outputLabel value="Name" styleClass="control-label col-sm-2"/>
-						<div class="col-sm-10">
-							<h:inputText value="#{userMB.name}" styleClass="form-control"/>
-						</div>		
+<ui:define name="title">Users</ui:define>
+
+<ui:define name="content">
+	<div class="row">
+		<div class="col-xs-12">
+			<h:form styleClass="form-horizontal">
+				<div class="form-group">
+					<h:outputLabel value="Name" styleClass="control-label col-sm-2"/>
+					<div class="col-sm-10">
+						<h:inputText value="#{userMB.name}" styleClass="form-control"/>
+					</div>		
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Login" styleClass="control-label col-sm-2"/>
+					<div class="col-sm-10">
+						<h:inputText value="#{userMB.login}" styleClass="form-control"/>		
+					</div>		
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Type" styleClass="control-label col-sm-2"/>
+					<div class="col-sm-10">
+						<h:inputText value="#{userMB.type}" styleClass="form-control"/>		
+					</div>		
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-10">
+						<c:choose>
+							<c:when test="#{userMB.userId > 0}">
+								<h:inputHidden value="#{userMB.userId}" />
+								<h:inputHidden value="#{userMB.password}" />
+								<h:commandButton action="#{userMB.updateUser()}" value="Update" styleClass="btn btn-default"/>
+							</c:when>
+							<c:otherwise>
+								<h:commandButton action="#{userMB.createUser()}" value="Create" styleClass="btn btn-default"/>
+							</c:otherwise>
+						</c:choose>
 					</div>
-					<div class="form-group">
-						<h:outputLabel value="Login" styleClass="control-label col-sm-2"/>
-						<div class="col-sm-10">
-							<h:inputText value="#{userMB.login}" styleClass="form-control"/>		
-						</div>		
-					</div>
-					<div class="form-group">
-						<h:outputLabel value="Type" styleClass="control-label col-sm-2"/>
-						<div class="col-sm-10">
-							<h:inputText value="#{userMB.type}" styleClass="form-control"/>		
-						</div>		
-					</div>
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<c:choose>
-								<c:when test="#{userMB.userId > 0}">
-									<h:inputHidden value="#{userMB.userId}" />
-									<h:inputHidden value="#{userMB.password}" />
-									<h:commandButton action="#{userMB.updateUser()}" value="Update" styleClass="btn btn-default"/>
-								</c:when>
-								<c:otherwise>
-									<h:commandButton action="#{userMB.createUser()}" value="Create" styleClass="btn btn-default"/>
-								</c:otherwise>
-							</c:choose>
-						</div>
-					</div>
-				</h:form>
-			
-				<table class="table table-bordered table-striped">
-					<thead>
+				</div>
+			</h:form>
+		
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+					<th>Name</th>
+					<th>Login</th>
+					<th>Type</th>
+					<th></th>
+					<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<ui:repeat var="usr" value="#{userMB.getAllUsers()}">
 						<tr>
-						<th>Name</th>
-						<th>Login</th>
-						<th>Type</th>
-						<th></th>
-						<th></th>
+							<td>#{usr.name}</td>
+							<td>#{usr.login}</td>
+							<td>#{usr.type}</td>
+							<td>
+								<h:form>
+									<h:commandLink action="#{userMB.getUserById(usr.userId)}">
+									<i class="glyphicon glyphicon-edit"></i>
+									</h:commandLink>
+								</h:form>
+							</td>
+							<td>
+								<h:form>
+									<h:commandLink action="#{userMB.deleteUser(usr.userId)}" >
+									<i class="glyphicon glyphicon-trash"></i>
+									</h:commandLink>
+								</h:form>					
+							</td>
 						</tr>
-					</thead>
-					<tbody>
-						<ui:repeat var="usr" value="#{userMB.getAllUsers()}">
-							<tr>
-								<td>#{usr.name}</td>
-								<td>#{usr.login}</td>
-								<td>#{usr.type}</td>
-								<td>
-									<h:form>
-										<h:commandLink action="#{userMB.getUserById(usr.userId)}">
-										<i class="glyphicon glyphicon-edit"></i>
-										</h:commandLink>
-									</h:form>
-								</td>
-								<td>
-									<h:form>
-										<h:commandLink action="#{userMB.deleteUser(usr.userId)}" >
-										<i class="glyphicon glyphicon-trash"></i>
-										</h:commandLink>
-									</h:form>					
-								</td>
-							</tr>
-						</ui:repeat>
-					</tbody>
-				</table>
-			</div>
+					</ui:repeat>
+				</tbody>
+			</table>
 		</div>
 	</div>
+</ui:define>	
 
-</h:body> 
-</html>
+</ui:composition>
