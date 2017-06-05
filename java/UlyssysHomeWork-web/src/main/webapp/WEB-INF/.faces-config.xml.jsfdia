@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PROCESS model-entity="JSFProcess">
  <PROCESS-ITEM NAME="rules:#login.xhtml" PATH="/login.xhtml"
-  SHAPE="104,64,50,25" model-entity="JSFProcessGroup">
+  SHAPE="104,64,50,25" model-entity="JSFProcessGroup" persistent="true">
   <PROCESS-ITEM ID="rules:#login.xhtml:0" NAME="item"
    PATH="/login.xhtml" model-entity="JSFProcessItem">
    <PROCESS-ITEM-OUTPUT ID="login::#pages#common#index.xhtml"
     NAME="output" PATH="/pages/common/index.xhtml"
     TARGET="rules:#pages#common#index.xhtml" TITLE="login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="Login::#pages#common#index.xhtml"
+    NAME="output1" PATH="/pages/common/index.xhtml"
+    TARGET="rules:#pages#common#index.xhtml" TITLE="Login" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
- <PROCESS-ITEM NAME="rules:#index22.xhtml" PATH="/index22.xhtml"
-  SHAPE="346,218,0,0" model-entity="JSFProcessGroup" persistent="true"/>
  <PROCESS-ITEM NAME="rules:#pages#common#index.xhtml"
-  PATH="/pages/common/index.xhtml" SHAPE="240,33,0,0" model-entity="JSFProcessGroup"/>
+  PATH="/pages/common/index.xhtml" SHAPE="261,89,0,0"
+  model-entity="JSFProcessGroup" persistent="true"/>
 </PROCESS>

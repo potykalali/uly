@@ -4,7 +4,7 @@
   <display-name>Ulyssys Web</display-name>
 
   <welcome-file-list>
-    <welcome-file>login.xhtml</welcome-file>
+    <welcome-file>/pages/common/index.xhtml</welcome-file>
   </welcome-file-list>
 
   <servlet>
