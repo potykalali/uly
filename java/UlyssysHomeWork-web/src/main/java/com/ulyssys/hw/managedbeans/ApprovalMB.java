@@ -9,7 +9,7 @@ import javax.faces.bean.ViewScoped;
 
 import com.ulyssys.hw.facades.interfaces.ApplicationFacade;
 import com.ulyssys.hw.facades.interfaces.UserFacade;
-import com.ulyssys.hw.jpa.entity.Application;
+import com.ulyssys.hw.jpa.entity.VAppUser;
 
 @ViewScoped
 @ManagedBean
@@ -30,7 +30,7 @@ public class ApprovalMB {
 	public ApprovalMB() {
 	}
 	
-	public List<Application> getModifiableApplications() {
+	public List<VAppUser> getModifiableApplications() {
 		return applicationFacade.findAllModifiable();
 	}
 	

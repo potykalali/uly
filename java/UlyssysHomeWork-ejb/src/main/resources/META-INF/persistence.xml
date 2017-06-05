@@ -3,6 +3,8 @@
 	<persistence-unit name="UlyssysEJB">
 		<jta-data-source>java:/mysql</jta-data-source>
 		<class>com.ulyssys.hw.jpa.entity.Event</class>
+		<class>com.ulyssys.hw.jpa.entity.VAppUser</class>
+		<class>com.ulyssys.hw.jpa.entity.VEventUser</class>
 		
 	</persistence-unit>
 </persistence>

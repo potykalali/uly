@@ -8,6 +8,14 @@
 <ui:define name="title">Events</ui:define>
 
 <ui:define name="content">
+
+    <ul class="nav nav-tabs">
+      <li><a href="../../index.xhtml">Home</a></li>
+      <li><a href="../common/applications.xhtml">Applications</a></li>
+      <li><a href="../operator/approval.xhtml">Approval</a></li>
+      <li class="active"><a href="#">Events</a></li>
+    </ul>
+	<br></br>	
 	<div class="row">
 		<div class="col-xs-12">
 			<table class="table table-bordered table-striped">
@@ -20,10 +28,10 @@
 					</tr>
 				</thead>
 				<tbody>
-					<ui:repeat var="evnt" value="#{eventsMB.getAllEventsDraft()}">
+					<ui:repeat var="evnt" value="#{eventsMB.getAllEvents()}">
 						<tr>
 							<td>#{evnt.tstamp}</td>
-							<td>#{eventsMB.getLogin(evnt.userId)}</td>
+							<td>#{evnt.name}</td>
 							<td>#{evnt.description}</td>
 							<td>#{evnt.successful}</td>
 						</tr>

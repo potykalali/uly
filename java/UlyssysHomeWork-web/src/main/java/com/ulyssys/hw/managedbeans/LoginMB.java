@@ -1,19 +1,19 @@
 package com.ulyssys.hw.managedbeans;
 
-import java.util.List;
+import java.io.Serializable;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
 
 import com.ulyssys.hw.facades.interfaces.UserFacade;
 import com.ulyssys.hw.jpa.entity.User;
-import java.io.Serializable;
 
 @SessionScoped
 @ManagedBean
 public class LoginMB implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 
 	@EJB
 	private UserFacade userFacade;

@@ -21,29 +21,29 @@
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>operator</web-resource-name>
-      <url-pattern>pages/operator/*</url-pattern>
+      <url-pattern>/pages/operator/*</url-pattern>
       <http-method>POST</http-method>
       <http-method>GET</http-method>
       <http-method>PUT</http-method>
       <http-method>DELETE</http-method>
     </web-resource-collection>
     <auth-constraint>
-      <role-name>OPERATOR</role-name>
+      <role-name>operator</role-name>
     </auth-constraint>
   </security-constraint>
   
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>user</web-resource-name>
-      <url-pattern>pages/common/*</url-pattern>
+      <web-resource-name>applicant</web-resource-name>
+      <url-pattern>/pages/common/*</url-pattern>
       <http-method>POST</http-method>
       <http-method>GET</http-method>
       <http-method>PUT</http-method>
       <http-method>DELETE</http-method>
     </web-resource-collection>
     <auth-constraint>
-      <role-name>OPERATOR</role-name>
-      <role-name>APPLICANT</role-name>
+      <role-name>operator</role-name>
+      <role-name>applicant</role-name>
     </auth-constraint>
   </security-constraint>
 	<!--Defining security constraint for type of roles available--> 
@@ -61,11 +61,11 @@
 
   <!--Defining security role-->
   <security-role>
-    <role-name>OPERATOR</role-name>
+    <role-name>operator</role-name>
   </security-role> 
 
   <security-role>
-    <role-name>APPLICANT</role-name>
+    <role-name>applicant</role-name>
   </security-role> 
   <!--Defining security role-->
 

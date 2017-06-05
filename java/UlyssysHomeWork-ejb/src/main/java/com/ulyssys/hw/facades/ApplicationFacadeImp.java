@@ -6,8 +6,10 @@ import javax.ejb.EJB;
 import javax.ejb.Stateless;
 
 import com.ulyssys.hw.ejb.beans.interfaces.ApplicationDAO;
+import com.ulyssys.hw.ejb.beans.interfaces.VAppUserDAO;
 import com.ulyssys.hw.facades.interfaces.ApplicationFacade;
 import com.ulyssys.hw.jpa.entity.Application;
+import com.ulyssys.hw.jpa.entity.VAppUser;
 
 @Stateless
 public class ApplicationFacadeImp implements ApplicationFacade {
@@ -15,6 +17,9 @@ public class ApplicationFacadeImp implements ApplicationFacade {
 	@EJB
 	private ApplicationDAO applicationDAO;
 	
+	@EJB
+	private VAppUserDAO appUserDAO;
+
 	@Override
 	public Application create(Application application) {
 		return applicationDAO.create(application);
@@ -31,18 +36,18 @@ public class ApplicationFacadeImp implements ApplicationFacade {
 	}
 
 	@Override
-	public Application findApplicationById(int id) {
-		return applicationDAO.getById(id);
+	public VAppUser findApplicationById(int id) {
+		return appUserDAO.getById(id);
 	}
 
 	@Override
-	public List<Application> findAll() {
-		return applicationDAO.findAll();
+	public List<VAppUser> findAll() {
+		return appUserDAO.findAll();
 	}
 
 	@Override
-	public List<Application> findAllModifiable() {
-		return applicationDAO.findAllModifiable();
+	public List<VAppUser> findAllModifiable() {
+		return appUserDAO.findAllModifiable();
 	}
 
 	@Override

@@ -1,14 +1,11 @@
-package com.ulyssys.hw.facades.interfaces;
+package com.ulyssys.hw.ejb.beans.interfaces;
 
 import java.util.List;
 
-import javax.ejb.Local;
-
 import com.ulyssys.hw.jpa.entity.VEventUser;
 
-@Local
-public interface EventFacade {
-
+public interface VEventUserDAO extends GenericDAO<VEventUser> {
+	
 	public List<VEventUser> findAllForView();
 
 }

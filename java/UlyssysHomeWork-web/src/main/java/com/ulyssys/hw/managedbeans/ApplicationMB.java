@@ -8,9 +8,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
 import com.ulyssys.hw.facades.interfaces.ApplicationFacade;
-import com.ulyssys.hw.facades.interfaces.UserFacade;
 import com.ulyssys.hw.jpa.entity.Application;
-import com.ulyssys.hw.jpa.entity.User;
+import com.ulyssys.hw.jpa.entity.VAppUser;
 
 @ViewScoped
 @ManagedBean
@@ -19,12 +18,9 @@ public class ApplicationMB {
 	@EJB
 	private ApplicationFacade applicationFacade;
 	
-	@EJB
-	private UserFacade userFacade;
-
 	private int applicationId;
 	private int userId ;
-	private String login;
+	private String name;
 	private Double amount;
 	private Timestamp approved;
 
@@ -50,20 +46,19 @@ public class ApplicationMB {
 	}
 
 	public void getApplicationById(int applicationId) {
-		Application application = applicationFacade.findApplicationById(applicationId);
-		User user = userFacade.findUserById(application.getUserId());
-		this.applicationId = application.getApplicationId();
-		this.userId = application.getUserId();
-		this.login = user.getLogin();  
-		this.amount = application.getAmount();
-		this.approved = application.getApproved();
+		VAppUser appUser = applicationFacade.findApplicationById(applicationId);
+		this.applicationId = appUser.getApplicationId();
+		this.userId = appUser.getUserId();
+		this.name = appUser.getName();  
+		this.amount = appUser.getAmount();
+		this.approved = appUser.getApproved();
 	}
 	
 	public void deleteApplication(int applicationId) {
 		applicationFacade.remove(applicationId);
 	}
 	
-	public List<Application> getAllApplications() {
+	public List<VAppUser> getAllApplications() {
 		return applicationFacade.findAll();
 	}
 	
@@ -99,12 +94,12 @@ public class ApplicationMB {
 		this.approved = approved;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getName() {
+		return name;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

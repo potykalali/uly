@@ -9,9 +9,17 @@
 <ui:define name="title">Approval</ui:define>
 
 <ui:define name="content">
+
+    <ul class="nav nav-tabs">
+      <li><a href="../../index.xhtml">Home</a></li>
+      <li><a href="../common/applications.xhtml">Applications</a></li>
+      <li class="active"><a href="#">Approval</a></li>
+      <li><a href="events.xhtml#">Events</a></li>
+    </ul>
+	<br></br>	
 	<div class="row">
 		<div class="col-xs-12">
-<h:form styleClass="form-horizontal">
+			<h:form styleClass="form-horizontal">
 				<div class="form-group col-sm-2">
 					<h:commandButton action="#{approvalMB.approveAll()}" value="Approve All" styleClass="btn btn-default"/>
 				</div>
@@ -29,7 +37,7 @@
 					<ui:repeat var="app" value="#{approvalMB.getModifiableApplications()}">
 						<tr>
 							<td>#{app.applicationId}</td>
-							<td></td>
+							<td>#{app.name}</td>
 							<td>#{app.amount}</td>
 							<td>
 								<h:form>

@@ -15,17 +15,11 @@ import javax.validation.constraints.NotNull;
 @Entity
 @NamedQueries({
 	  @NamedQuery(name = "Application.getAll",
-			  	  query = "SELECT a FROM Application a"),
-	  @NamedQuery(name="Application.findByUser",
-      			  query="SELECT a FROM Application a WHERE a.userId = :id"),
-	  @NamedQuery(name="Application.findModifiable",
-	              query="SELECT a FROM Application a WHERE a.approved IS NULL")
+			  	  query = "SELECT a FROM Application a")
 	})
 public class Application implements Serializable {
 
 	public static final String GET_ALL = "Application.getAll"; 
-	public static final String FIND_BY_USER = "Application.findByUser"; 
-	public static final String FIND_MODIFIABLE = "Application.findModifiable"; 
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

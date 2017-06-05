@@ -61,3 +61,8 @@ ALTER TABLE `ulyssyshw`.`application`
 ADD INDEX `idx_app_approved` (`approved` ASC);
 
 
+CREATE OR REPLACE VIEW ulyssyshw.v_app_user AS 
+SELECT u.login, u.name, a.* FROM user u, application a WHERE a.user_id = u.user_id;
+
+CREATE OR REPLACE VIEW ulyssyshw.v_event_user AS 
+SELECT u.login, u.name, e.* FROM user u, event e WHERE e.user_id = u.user_id;
