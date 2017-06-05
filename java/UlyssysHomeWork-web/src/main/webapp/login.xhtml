@@ -9,29 +9,25 @@
 <ui:define name="title">Login</ui:define>
 
 <ui:define name="content">
-	<div class="row">
-		<div class="col-xs-12">
-			<h:form styleClass="form-horizontal">
-				<div class="form-group">
-					<h:outputLabel value="Login" styleClass="control-label col-sm-2"/>
-					<div class="col-sm-4">
-						<h:inputText value="#{applicationMB.amount}" styleClass="form-control "/>
-					</div>		
-				</div>
-				<div class="form-group">
-					<h:outputLabel value="Password" styleClass="control-label col-sm-2"/>
-					<div class="col-sm-4">
-						<h:inputSecret value="Password" styleClass="form-control "/>
-					</div>		
-				</div>
-				<div class="form-group">
-					<div class="col-sm-offset-2 col-sm-10">
-						<h:commandButton action="#{applicationMB.createApplication()}" value="Login" styleClass="btn btn-default"/>
-					</div>
-				</div>
-			</h:form>
+	<form action="j_security_check" method="post" class="form-horizontal">
+		<div class="form-group">
+			<label class="control-label col-sm-2">Username:</label>
+			<div class="col-sm-4">
+				<input type="text" class="" name="j_username" placeholder="Username" />		
+			</div>
 		</div>
-	</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2">Password:</label>
+			<div class="col-sm-4">
+				<input type="password" class="" name="j_password" placeholder="Password" />		
+			</div>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<button type="submit" class="btn btn-primary">Login</button>		
+			</div>
+		</div>
+	</form>	
 </ui:define>	
 <ui:define name="footer"></ui:define>
 </ui:composition>

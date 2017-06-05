@@ -4,7 +4,7 @@
   <display-name>Ulyssys Web</display-name>
 
   <welcome-file-list>
-    <welcome-file>/pages/index.xhtml</welcome-file>
+    <welcome-file>login.xhtml</welcome-file>
   </welcome-file-list>
 
   <servlet>
@@ -20,35 +20,35 @@
 	<!--Defining security constraint for type of roles available--> 
   <security-constraint>
     <web-resource-collection>
-      <web-resource-name>administrator</web-resource-name>
-      <url-pattern>/pages/admin/*</url-pattern>
+      <web-resource-name>operator</web-resource-name>
+      <url-pattern>pages/operator/*</url-pattern>
       <http-method>POST</http-method>
       <http-method>GET</http-method>
       <http-method>PUT</http-method>
       <http-method>DELETE</http-method>
     </web-resource-collection>
     <auth-constraint>
-      <role-name>ADMINISTRATOR</role-name>
+      <role-name>OPERATOR</role-name>
     </auth-constraint>
   </security-constraint>
   
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>user</web-resource-name>
-      <url-pattern>/pages/user/*</url-pattern>
+      <url-pattern>pages/common/*</url-pattern>
       <http-method>POST</http-method>
       <http-method>GET</http-method>
       <http-method>PUT</http-method>
       <http-method>DELETE</http-method>
     </web-resource-collection>
     <auth-constraint>
-      <role-name>ADMINISTRATOR</role-name>
-      <role-name>USER</role-name>
+      <role-name>OPERATOR</role-name>
+      <role-name>APPLICANT</role-name>
     </auth-constraint>
   </security-constraint>
 	<!--Defining security constraint for type of roles available--> 
 
-	<!--Defining type of authenitcation mechanism-->  
+	<!--Defining type of authentication mechanism-->  
   <login-config>
     <auth-method>FORM</auth-method>
     <realm-name>ulyssyshw-application</realm-name>
@@ -57,16 +57,16 @@
     	<form-error-page>/error.xhtml</form-error-page>
     </form-login-config>
   </login-config>
-	<!--Defining type of authenitcation mechanism-->
+	<!--Defining type of authentication mechanism-->
 
-  <!--Denining security role-->
+  <!--Defining security role-->
   <security-role>
-    <role-name>ADMINISTRATOR</role-name>
+    <role-name>OPERATOR</role-name>
   </security-role> 
 
   <security-role>
-    <role-name>USER</role-name>
+    <role-name>APPLICANT</role-name>
   </security-role> 
-  <!--Denining security role-->
+  <!--Defining security role-->
 
 </web-app>

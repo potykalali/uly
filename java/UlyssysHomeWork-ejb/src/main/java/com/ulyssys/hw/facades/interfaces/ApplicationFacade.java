@@ -15,6 +15,9 @@ public interface ApplicationFacade {
 	public Application findApplicationById(int id);
 	public List<Application> findAll();
 	
+	public List<Application> findAllModifiable();
+	public void approve(int id);
+	public void approveAll();
 	
 
 }

@@ -40,4 +40,20 @@ public class ApplicationFacadeImp implements ApplicationFacade {
 		return applicationDAO.findAll();
 	}
 
+	@Override
+	public List<Application> findAllModifiable() {
+		return applicationDAO.findAllModifiable();
+	}
+
+	@Override
+	public void approve(int id) {
+		applicationDAO.approve(id);
+		
+	}
+
+	@Override
+	public void approveAll() {
+		applicationDAO.approveAll();
+	}
+
 }
