@@ -16,11 +16,11 @@ public class VAppUserDAOImp extends GenericDAOImp<VAppUser> implements VAppUserD
 		super(VAppUser.class);
 	}
 
-	public VAppUser findApplicationByUser(String userId){
+	public List<VAppUser> findApplicationByUser(int userId){
 		  Map<String, Object> parameters = new HashMap<String, Object>();
 		  parameters.put("id", userId); 
 		 
-		  return super.findOneResult(VAppUser.FIND_BY_USER, parameters);
+		  return super.findAllByParameter(VAppUser.FIND_BY_USER, parameters);
 	 }
 
 	@Override

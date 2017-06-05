@@ -27,5 +27,5 @@ public class ApplicationDAOImp extends GenericDAOImp<Application> implements App
 		// TODO Auto-generated method stub
 		
 	}
-	
+
 }

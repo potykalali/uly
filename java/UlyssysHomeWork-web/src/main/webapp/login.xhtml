@@ -11,20 +11,20 @@
 <ui:define name="content">
 	<form action="j_security_check" method="post" class="form-horizontal">
 		<div class="form-group">
-			<label class="control-label col-sm-2">Username:</label>
+			<h:outputLabel class="control-label col-sm-2">Username:</h:outputLabel>
 			<div class="col-sm-4">
-				<input type="text" class="" name="j_username" placeholder="Username" />		
+				<h:inputText type="text" id="j_username" />		
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-2">Password:</label>
+			<h:outputLabel class="control-label col-sm-2">Password:</h:outputLabel>
 			<div class="col-sm-4">
-				<input type="password" class="" name="j_password" placeholder="Password" />		
+				<h:inputSecret id="j_password" />		
 			</div>
 		</div>
 		<div class="form-group">
 			<div class="col-sm-offset-2 col-sm-10">
-				<button type="submit" class="btn btn-primary">Login</button>		
+				<h:commandButton value="Login"></h:commandButton>		
 			</div>
 		</div>
 	</form>	

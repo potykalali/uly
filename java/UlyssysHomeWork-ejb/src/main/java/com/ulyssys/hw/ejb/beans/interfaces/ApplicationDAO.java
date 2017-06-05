@@ -6,4 +6,6 @@ public interface ApplicationDAO extends GenericDAO<Application> {
 
 	public void approve(int applicationId);
 	public void approveAll();
+
 }
+

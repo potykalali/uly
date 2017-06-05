@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.validation.constraints.NotNull;
 
@@ -14,9 +15,14 @@ import org.hibernate.validator.constraints.Length;
 
 
 @Entity
-@NamedQuery(name = "User.getAll", query = "SELECT u FROM User u")
+@NamedQueries({
+	@NamedQuery(name = "User.getAll", query = "SELECT u FROM User u"),
+	@NamedQuery(name = "User.findByLogin", query = "SELECT u FROM User u WHERE u.login = :login")
+})
 public class User implements Serializable {
 
+	public static final String FIND_ALL = "User.getAll"; 
+	public static final String FIND_BY_LOGIN = "User.findByLogin"; 
 	   
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

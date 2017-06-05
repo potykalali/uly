@@ -27,10 +27,10 @@ public class ApplicationMB {
 	public ApplicationMB() {
 	}
 	
-	public void createApplication() {
+	public void createApplication(int userId) {
 		Application application = new Application();
 		//application.setApplicationId();
-		application.setAmount(amount);
+		application.setAmount(this.amount);
 		application.setApproved(null);
 		application.setUserId(userId);
 		applicationFacade.create(application);
@@ -39,9 +39,9 @@ public class ApplicationMB {
 	public void updateApplication() {
 		Application application = new Application();
 		application.setApplicationId(this.applicationId);
-		application.setAmount(amount);
+		application.setAmount(this.amount);
 		application.setApproved(null);
-		application.setUserId(userId);
+		application.setUserId(this.userId);
 		applicationFacade.update(application);
 	}
 
@@ -62,6 +62,10 @@ public class ApplicationMB {
 		return applicationFacade.findAll();
 	}
 	
+	public List<VAppUser> findAllByUserId(int userId) {
+		return applicationFacade.findAllByUserId(userId);
+	}
+
 	public int getApplicationId() {
 		return applicationId;
 	}

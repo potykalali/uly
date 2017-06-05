@@ -35,7 +35,7 @@
 								<h:commandButton action="#{applicationMB.updateApplication()}" value="Update" styleClass="btn btn-default"/>
 							</c:when>
 							<c:otherwise>
-								<h:commandButton action="#{applicationMB.createApplication()}" value="Create" styleClass="btn btn-default"/>
+								<h:commandButton action="#{applicationMB.createApplication(authMB.user.userId)}" value="Create new" styleClass="btn btn-default"/>
 							</c:otherwise>
 						</c:choose>
 					</div>
@@ -52,13 +52,13 @@
 					</tr>
 				</thead>
 				<tbody>
-					<ui:repeat var="app" value="#{applicationMB.getAllApplications()}">
+					<ui:repeat var="app" value="#{applicationMB.findAllByUserId(authMB.user.userId)}">
 						<tr>
 							<td>#{app.applicationId}</td>
 							<td>#{app.amount}</td>
 							<td>
 								<h:form>
-									<h:commandLink action="#{applicationMB.getApplicationById(app.userId)}">
+									<h:commandLink action="#{applicationMB.getApplicationById(app.applicationId)}">
 									<i class="glyphicon glyphicon-edit"></i>
 									</h:commandLink>
 								</h:form>

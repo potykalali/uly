@@ -40,4 +40,8 @@ public class UserFacadeImp implements UserFacade {
 		return userDAO.findAll();
 	}
 
+	public User findByLogin(String login) {
+		return userDAO.findByLogin(login);
+		
+	}
 }

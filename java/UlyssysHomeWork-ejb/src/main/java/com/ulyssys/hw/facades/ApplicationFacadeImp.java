@@ -61,4 +61,9 @@ public class ApplicationFacadeImp implements ApplicationFacade {
 		applicationDAO.approveAll();
 	}
 
+	@Override
+	public List<VAppUser> findAllByUserId(int userId) {
+		return appUserDAO.findApplicationByUser(userId);
+	}
+
 }

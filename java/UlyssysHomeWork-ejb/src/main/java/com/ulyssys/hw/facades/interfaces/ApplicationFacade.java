@@ -20,5 +20,6 @@ public interface ApplicationFacade {
 	public void approve(int id);
 	public void approveAll();
 	
+	public List<VAppUser> findAllByUserId(int userId);
 
 }

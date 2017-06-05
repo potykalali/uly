@@ -6,7 +6,7 @@ import com.ulyssys.hw.jpa.entity.VAppUser;
 
 public interface VAppUserDAO extends GenericDAO<VAppUser> {
 
-	public VAppUser findApplicationByUser(String userId);
+	public List<VAppUser> findApplicationByUser(int userId);
 	public List<VAppUser> findAllModifiable();
 	
 }

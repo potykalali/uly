@@ -15,6 +15,6 @@ public interface UserFacade {
 	public User findUserById(int id);
 	public List<User> findAll();
 	
-	
+	public User findByLogin(String login);
 
 }
