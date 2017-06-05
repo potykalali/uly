@@ -1,6 +1,7 @@
 package com.ulyssys.hw.ejb.beans;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 import javax.ejb.Stateless;
 
@@ -24,8 +25,10 @@ public class ApplicationDAOImp extends GenericDAOImp<Application> implements App
 
 	@Override
 	public void approveAll() {
-		// TODO Auto-generated method stub
-		
+		List<Application> appList = super.findAll();
+		for (Application oneApp : appList) {
+			this.approve(oneApp.getApplicationId());
+		} 
 	}
 
 }

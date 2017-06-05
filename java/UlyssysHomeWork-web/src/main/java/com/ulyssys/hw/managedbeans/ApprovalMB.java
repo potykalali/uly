@@ -34,12 +34,17 @@ public class ApprovalMB {
 		return applicationFacade.findAllModifiable();
 	}
 	
+	public List<VAppUser> findAll() {
+		
+		return applicationFacade.findAll();
+	}
+
 	public void approve(int applicationId) {
 		applicationFacade.approve(applicationId);
 	}
 
 	public void approveAll() {
-		applicationFacade.approve(applicationId);
+		applicationFacade.approveAll();
 	}
 
 	public int getApplicationId() {

@@ -34,17 +34,17 @@
 					</tr>
 				</thead>
 				<tbody>
-					<ui:repeat var="app" value="#{approvalMB.getModifiableApplications()}">
+					<ui:repeat var="app" value="#{approvalMB.findAll()}">
 						<tr>
 							<td>#{app.applicationId}</td>
 							<td>#{app.name}</td>
 							<td>#{app.amount}</td>
 							<td>
 								<h:form>
-									<h:commandLink action="#{approvalMB.approve(app.applicationId)}" >
+									<h:commandLink action="#{approvalMB.approve(app.applicationId)}" rendered="#{app.approved == null}">
 									<i class="glyphicon glyphicon-ok"></i>
 									</h:commandLink>
-								</h:form>					
+								</h:form>
 							</td>
 						</tr>
 					</ui:repeat>

@@ -95,7 +95,7 @@ public abstract class GenericDAOImp<T> implements GenericDAO<T> {
 		 }
 		 return result;
 	 }
-	 
+	
 	 private void populateQueryParameters(Query query, Map<String, Object> parameters) {
 		 for (Entry<String, Object> entry : parameters.entrySet()) {
 			 query.setParameter(entry.getKey(), entry.getValue());

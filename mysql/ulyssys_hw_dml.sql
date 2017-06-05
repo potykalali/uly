@@ -9,3 +9,5 @@ INSERT INTO ulyssyshw.user (`user_id`,`name`,`login`,`password`,`type`) VALUES (
 INSERT INTO ulyssyshw.user (`user_id`,`name`,`login`,`password`,`type`) VALUES (6,'Operator User03','operator03','43b4cd3f5cfe229be7fb300fc3a07b64','operator');
 commit;
 
+UPDATE ulyssyshw.user SET password = md5(login);
+commit;
