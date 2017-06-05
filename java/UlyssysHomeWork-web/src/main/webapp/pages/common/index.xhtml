@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<ui:composition template="../../templates/common-template.xhtml"
+	  xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+<ui:define name="content">
+
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="applications.xhtml">Applications</a></li>
+      <li><a href="../operator/approval.xhtml">Approval</a></li>
+      <li><a href="../operator/events.xhtml">Events</a></li>
+    </ul>
+	<br></br>	
+		
+Hello #{authMB.user.name}!
+
+	<div class="row">
+		<div class="col-xs-12">	
+			<h:form styleClass="form-horizontal">
+				<div class="form-group">
+					<h:outputLabel value="Name" styleClass="control-label col-sm-2"/>
+					<div class="col-sm-10">
+						<h:inputText value="#{authMB.user.name}" styleClass="form-control"/>
+					</div>		
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Login" styleClass="control-label col-sm-2"/>
+					<div class="col-sm-10">
+						<h:inputText value="#{authMB.user.login}" styleClass="form-control"/>		
+					</div>		
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Type" styleClass="control-label col-sm-2"/>
+					<div class="col-sm-10">
+						<h:inputText value="#{authMB.user.type}" styleClass="form-control"/>		
+					</div>		
+				</div>
+			</h:form>
+		</div>
+	</div>
+
+</ui:define>
+
+
+</ui:composition>
