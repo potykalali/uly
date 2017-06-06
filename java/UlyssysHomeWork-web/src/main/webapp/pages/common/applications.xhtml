@@ -58,14 +58,14 @@
 							<td>#{app.amount}</td>
 							<td>
 								<h:form>
-									<h:commandLink action="#{applicationMB.getApplicationById(app.applicationId)}">
+									<h:commandLink action="#{applicationMB.getApplicationById(app.applicationId)}" rendered="#{app.approved == null}">
 									<i class="glyphicon glyphicon-edit"></i>
 									</h:commandLink>
 								</h:form>
 							</td>
 							<td>
 								<h:form>
-									<h:commandLink action="#{applicationMB.deleteApplication(app.applicationId)}" >
+									<h:commandLink action="#{applicationMB.deleteApplication(app.applicationId)}" rendered="#{app.approved == null}">
 									<i class="glyphicon glyphicon-trash"></i>
 									</h:commandLink>
 								</h:form>					

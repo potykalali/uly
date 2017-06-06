@@ -15,7 +15,7 @@ import javax.persistence.NamedQuery;
 @Entity
 @NamedQueries({
 	  @NamedQuery(name = "Event.findAll",
-			  	  query = "SELECT e FROM Event e")
+			  	  query = "SELECT e FROM Event e ORDER BY e.eventId DESC")
 	})
 public class Event implements Serializable {
 	private static final long serialVersionUID = 1L;

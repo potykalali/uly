@@ -13,9 +13,9 @@ import javax.persistence.Table;
 @Entity
 @Table(name="v_app_user")
 @NamedQueries({
-	@NamedQuery(name="VAppUser.findAll", query="SELECT v FROM VAppUser v"),
-	@NamedQuery(name="VAppUser.findByUser", query="SELECT v FROM VAppUser v WHERE v.userId = :id AND v.approved IS NULL"),
-	@NamedQuery(name="VAppUser.findModifiable", query="SELECT v FROM VAppUser v WHERE v.approved IS NULL")
+	@NamedQuery(name="VAppUser.findAll", query="SELECT v FROM VAppUser v ORDER BY v.applicationId DESC"),
+	@NamedQuery(name="VAppUser.findByUser", query="SELECT v FROM VAppUser v WHERE v.userId = :id"),
+	@NamedQuery(name="VAppUser.findModifiable", query="SELECT v FROM VAppUser v WHERE v.approved IS NULL ORDER BY v.applicationId DESC")
 })
 public class VAppUser implements Serializable {
 	private static final long serialVersionUID = 1L;

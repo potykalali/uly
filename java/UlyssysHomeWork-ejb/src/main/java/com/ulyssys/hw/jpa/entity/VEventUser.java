@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name="v_event_user")
-@NamedQuery(name="VEventUser.findAll", query="SELECT v FROM VEventUser v")
+@NamedQuery(name="VEventUser.findAll", query="SELECT v FROM VEventUser v ORDER BY v.eventId DESC")
 public class VEventUser implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
