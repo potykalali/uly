@@ -92,7 +92,7 @@ public class ApplicationDAOImp extends GenericDAOImp<Application> implements App
 		Event event = new Event();
 		event.setTstamp(new Timestamp(System.currentTimeMillis()));
 		event.setUserId(application.getUserId());
-		event.setDescription(eventType.toString());
+		event.setDescription(eventType.toString() + " - " + application.getApplicationId());
 		event.setSuccessful(status.toString());
 		eventDAO.create(event);
 	}
