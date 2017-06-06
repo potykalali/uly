@@ -10,6 +10,9 @@
    <PROCESS-ITEM-OUTPUT ID="Login::#pages#common#index.xhtml"
     NAME="output1" PATH="/pages/common/index.xhtml"
     TARGET="rules:#pages#common#index.xhtml" TITLE="Login" model-entity="JSFProcessItemOutput"/>
+   <PROCESS-ITEM-OUTPUT ID="success::#pages#common#index.xhtml"
+    NAME="output2" PATH="/pages/common/index.xhtml"
+    TARGET="rules:#pages#common#index.xhtml" TITLE="success" model-entity="JSFProcessItemOutput"/>
   </PROCESS-ITEM>
  </PROCESS-ITEM>
  <PROCESS-ITEM NAME="rules:#pages#common#index.xhtml"

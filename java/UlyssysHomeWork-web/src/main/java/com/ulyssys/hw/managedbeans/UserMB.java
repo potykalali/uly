@@ -27,7 +27,6 @@ public class UserMB {
 	
 	public void createUser() {
 		User user = new User();
-		//user.setUserId();
 		user.setLogin(login);
 		user.setName(name);
 		user.setPassword(login);

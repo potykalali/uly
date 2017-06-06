@@ -29,7 +29,7 @@ CREATE TABLE `ulyssyshw`.`application` (
   `application_id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT(11) NOT NULL,
   `amount` DOUBLE NOT NULL,
-  `approved` TIMESTAMP(3) NULL,
+  `approved` VARCHAR(10) NULL,
   PRIMARY KEY (`application_id`),
   INDEX `fk_user_idx` (`user_id` ASC),
   CONSTRAINT `fk_user`
@@ -44,7 +44,7 @@ CREATE TABLE `ulyssyshw`.`event` (
   `tstamp` TIMESTAMP(3) NOT NULL,
   `user_id` INT(11) NOT NULL,
   `description` VARCHAR(200) NOT NULL,
-  `successful` VARCHAR(1) NOT NULL,
+  `successful` VARCHAR(15) NOT NULL,
   PRIMARY KEY (`event_id`),
   INDEX `fk_user_id_idx` (`user_id` ASC),
   CONSTRAINT `fk_user_id`

@@ -1,6 +1,5 @@
 package com.ulyssys.hw.managedbeans;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -22,7 +21,7 @@ public class ApplicationMB {
 	private int userId ;
 	private String name;
 	private Double amount;
-	private Timestamp approved;
+	private String approved;
 
 	public ApplicationMB() {
 	}
@@ -90,11 +89,11 @@ public class ApplicationMB {
 		this.amount = amount;
 	}
 
-	public Timestamp getApproved() {
+	public String getApproved() {
 		return approved;
 	}
 
-	public void setApproved(Timestamp approved) {
+	public void setApproved(String approved) {
 		this.approved = approved;
 	}
 

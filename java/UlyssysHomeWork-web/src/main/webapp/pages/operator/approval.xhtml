@@ -31,6 +31,7 @@
 						<th>Applicant</th>
 						<th>Amount</th>
 						<th></th>
+						<th></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -43,6 +44,13 @@
 								<h:form>
 									<h:commandLink action="#{approvalMB.approve(app.applicationId)}" rendered="#{app.approved == null}">
 									<i class="glyphicon glyphicon-ok"></i>
+									</h:commandLink>
+								</h:form>
+							</td>
+							<td>	
+								<h:form>
+									<h:commandLink action="#{approvalMB.reject(app.applicationId)}" rendered="#{app.approved == null}">
+									<i class="glyphicon glyphicon-remove"></i>
 									</h:commandLink>
 								</h:form>
 							</td>

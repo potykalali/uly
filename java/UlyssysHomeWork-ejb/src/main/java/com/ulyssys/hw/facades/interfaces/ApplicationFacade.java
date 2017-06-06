@@ -19,6 +19,7 @@ public interface ApplicationFacade {
 	public List<VAppUser> findAllModifiable();
 	public void approve(int id);
 	public void approveAll();
+	public void reject(int id);
 	
 	public List<VAppUser> findAllByUserId(int userId);
 

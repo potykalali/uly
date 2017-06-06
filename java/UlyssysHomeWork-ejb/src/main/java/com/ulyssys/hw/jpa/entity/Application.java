@@ -1,7 +1,6 @@
 package com.ulyssys.hw.jpa.entity;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -34,7 +33,7 @@ public class Application implements Serializable {
 	@NotNull
 	private Double amount;
 	
-	private Timestamp approved;
+	private String approved;
 	
 	private static final long serialVersionUID = 1L;
 
@@ -62,11 +61,12 @@ public class Application implements Serializable {
 	public void setAmount(Double amount) {
 		this.amount = amount;
 	}   
-	public Timestamp getApproved() {
+	
+	public String getApproved() {
 		return this.approved;
 	}
 
-	public void setApproved(Timestamp approved) {
+	public void setApproved(String approved) {
 		this.approved = approved;
 	}
    

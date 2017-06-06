@@ -53,12 +53,16 @@ public class ApplicationFacadeImp implements ApplicationFacade {
 	@Override
 	public void approve(int id) {
 		applicationDAO.approve(id);
-		
 	}
 
 	@Override
 	public void approveAll() {
 		applicationDAO.approveAll();
+	}
+
+	@Override
+	public void reject(int id) {
+		applicationDAO.reject(id);
 	}
 
 	@Override
